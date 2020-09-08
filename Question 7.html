@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button type="button" onclick="getResp()">Get Response</button>
+<div id="demo">
+</div>
+
+<script>
+var url="http://www.example.com/api/get/1";
+function getResp() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  console.log(this.readyState ,this.status);
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET",url, true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

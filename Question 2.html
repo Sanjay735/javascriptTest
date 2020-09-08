@@ -1,0 +1,30 @@
+<!DOCTYPE hmtl>
+<hmtl>
+<head>
+</head>
+<body>
+</body>
+<script>
+  var arr="00110001001110";
+  var len=arr.length;
+  document.write("Given Array = ",arr,"<br/>");
+  
+ 
+   var count = 0;
+		var max = 0;
+		for(var i = 0; i < arr.length; i++){
+			if(arr.charAt(i) == 0){
+				count = 0;
+			}
+			else{
+				count++;
+				if(count >max){
+				max =count;
+				}
+			}
+		}
+	console.log("Max num of consecutive 1's is ",max);
+	document.write("Max num of consecutive 1's is ",max);
+	  
+   </script>
+   </html>
