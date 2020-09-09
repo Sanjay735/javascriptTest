@@ -1,0 +1,161 @@
+
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<style>
+	.navbar{
+      background-color:#343a40;
+    }
+    .navbar a{
+	color:lightgrey;
+     }
+	</style>
+	</head>
+<body>
+<!-- Navigation -->
+ <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand text-secondary" to="/">
+          Logout 1
+        </a>
+        <div class="" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link navbar-brand text-secondary"
+                href="#"
+              >
+                About
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link navbar-brand text-secondary"
+                href="#"
+              >
+                Services
+              </a>
+            </li>
+			<li class="nav-item">
+              <a
+                href="#"
+                class="nav-link navbar-brand text-secondary"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+<div class="container">
+<div class="m-2">
+ <h3>Page Heading <span class="text-secondary">Secondary Text</span></h3> 
+</div>
+<hr class="my-2">
+<div id="products"></div>	
+<hr class="my-2">
+<div class="text-secondary">Copyright © Your Website 2014</div><br><br>
+</div>
+
+</body>
+<script>
+let arr = [
+  {
+    "albumId": 1,
+    "id": 1,
+    "title": "accusamus beatae ad facilis cum similique qui sunt",
+    "url": "https://via.placeholder.com/600/92c952",
+    "thumbnailUrl": "https://via.placeholder.com/150/92c952"
+  },
+  {
+    "albumId": 1,
+    "id": 2,
+    "title": "reprehenderit est deserunt velit ipsam",
+    "url": "https://via.placeholder.com/600/771796",
+    "thumbnailUrl": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "albumId": 1,
+    "id": 3,
+    "title": "officia porro iure quia iusto qui ipsa ut modi",
+    "url": "https://via.placeholder.com/600/24f355",
+    "thumbnailUrl": "https://via.placeholder.com/150/24f355"
+  },
+  {
+    "albumId": 1,
+    "id": 4,
+    "title": "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
+    "url": "https://via.placeholder.com/600/d32776",
+    "thumbnailUrl": "https://via.placeholder.com/150/d32776"
+  },
+  {
+    "albumId": 1,
+    "id": 5,
+    "title": "natus nisi omnis corporis facere molestiae rerum in",
+    "url": "https://via.placeholder.com/600/f66b97",
+    "thumbnailUrl": "https://via.placeholder.com/150/f66b97"
+  },
+  {
+    "albumId": 1,
+    "id": 6,
+    "title": "accusamus ea aliquid et amet sequi nemo",
+    "url": "https://via.placeholder.com/600/56a8c2",
+    "thumbnailUrl": "https://via.placeholder.com/150/56a8c2"
+  },
+  {
+    "albumId": 1,
+    "id": 7,
+    "title": "officia delectus consequatur vero aut veniam explicabo molestias",
+    "url": "https://via.placeholder.com/600/b0f7cc",
+    "thumbnailUrl": "https://via.placeholder.com/150/b0f7cc"
+  },
+  {
+    "albumId": 1,
+    "id": 8,
+    "title": "aut porro officiis laborum odit ea laudantium corporis",
+    "url": "https://via.placeholder.com/600/54176f",
+    "thumbnailUrl": "https://via.placeholder.com/150/54176f"
+  },
+  {
+    "albumId": 1,
+    "id": 9,
+    "title": "qui eius qui autem sed",
+    "url": "https://via.placeholder.com/600/51aa97",
+    "thumbnailUrl": "https://via.placeholder.com/150/51aa97"
+  }];
+  console.log(arr);
+  showProducts();
+  function showProducts(){
+    let mapProducts = arr.map((prod,index)=>makeElement(prod,index));
+	 console.log(mapProducts);
+	let strData = mapProducts.join(" ");	
+	let element = document.getElementById("products");
+	 element.innerHTML ="<div class='row p-2 m-2'>"+strData+"</div>";
+  }
+  function handleDeleteItem(index){
+  console.log(index);
+  arr.splice(index,1);
+  showProducts();
+  }
+  function makeElement(item,i){
+    
+	let str ="<div class='col-3 border m-2 p-3 text-secondary'>"
+             + "<img src='"+item.url+"' style='height:200px'><br/>"
+			 +"<h5><a class='text-primary'>Project Name "+(i+1)+"</a></h5>"
+			+item.title
+			 +"<h5><i class='fa fa-trash ' aria-hidden=true onclick=handleDeleteItem("+i+")></i>Delete</h5>"
+			;
+   
+      str = str + "</div>";
+	  return str;
+
+	}
+
+</script>
+</html>
